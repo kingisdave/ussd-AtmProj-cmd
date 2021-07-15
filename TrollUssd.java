@@ -109,103 +109,106 @@ public class TrollUssd{
 			firstDisplay();
 		}
 	}
-	// public static void selectNetwork(String ussds){
-	// 	// System.out.println(" Kindly select one of these networks");
-	// 	// System.out.println("> 1.MTN");
-	// 	// System.out.println("> 2.AIRTEL");
-	// 	// System.out.print("\n Your Reply> ");
-	// 	myValues = Integer.parseInt(userInput.nextLine());
-	// 	if(myValues > 0 && myValues < 3){
-	// 		String myCodes = ussds;
-	// 		if(myValues == 1){
-	// 				mtnPhone(myCodes);
-	// 		} else {
-	// 			airtelPhone(myCodes);
-	// 		}
-	// 	} else {
-	// 		selectNetwork("");
-	// 	} 
-	// }
-	// public static void operateUssd(int myv){
-		// for (String menus : firstMenus) {
-		// 	System.out.println(menus);
-		// }
-		// System.out.print(" Your Reply> ");
-		// myValues = Integer.parseInt(userInput.nextLine());
-		// if (myValues >0 && myValues < firstMenus.length+1 ) {
-		// 	for (int u=0; u< firstMenus.length; u++) {
-		// 		if (myValues-1 == u) {
-		// 			System.out.print("---------------------------------->");
-		// 			for(int v=0; v< secondMenus[u].length; v++){
-		// 				System.out.println(secondMenus[u][v]);
-		// 			}
+	public static void selectNetwork(String ussds){
+		// System.out.println(" Kindly select one of these networks");
+		// System.out.println("> 1.MTN");
+		// System.out.println("> 2.AIRTEL");
+		// System.out.print("\n Your Reply> ");
+		myValues = Integer.parseInt(userInput.nextLine());
+		if(myValues > 0 && myValues < 3){
+			String myCodes = ussds;
+			if(myValues == 1){
+					mtnPhone(myCodes);
+			} else {
+				airtelPhone(myCodes);
+			}
+		} else {
+			selectNetwork("");
+		} 
+	}
+	public static void operateUssd(int myv){
+		for (String menus : firstMenus) {
+			System.out.println(menus);
+		}
+		System.out.print(" Your Reply> ");
+		myValues = Integer.parseInt(userInput.nextLine());
+		if (myValues >0 && myValues < firstMenus.length+1 ) {
+			for (int u=0; u< firstMenus.length; u++) {
+				if (myValues-1 == u) {
+					System.out.print("---------------------------------->");
+					for(int v=0; v< secondMenus[u].length; v++){
+						System.out.println(secondMenus[u][v]);
+					}
 
-		// 			System.out.print("\n Your Reply> ");
-		// 			myValues = Integer.parseInt(userInput.nextLine());			
+					System.out.print("\n Your Reply> ");
+					myValues = Integer.parseInt(userInput.nextLine());			
 								
-		// 			if (!(myValues>0 && myValues< secondMenus[u].length+1)) {
-		// 				System.out.println("Invalid Input details");
-		// 			} else {
-		// 				System.out.println("----------------------------------->");
-		// 				for(int v=0; v< secondMenus[u].length; v++){
+					if (!(myValues>0 && myValues< secondMenus[u].length+1)) {
+						System.out.println("Invalid Input details");
+					} else {
+						System.out.println("----------------------------------->");
+						for(int v=0; v< secondMenus[u].length; v++){
 							
-		// 					if (myValues-1 == v) {
-		// 						for (String tMenus : thirdMenus[u][v]) {
-		// 							System.out.println(tMenus);	
-		// 						}
-		// 						// for (int j=0; j< ThirdMenus[u][v].length; j++) {
-		// 						// 	System.out.println(ThirdMenus[u][v][j]);	
-		// 						// }
-		// 						if (!(u == 2) && !(u == 4)){
-		// 							System.out.print("\n Your Reply> ");
-		// 							int inputValues = Integer.parseInt(userInput.nextLine());
-		// 							for (int j=0; j< thirdMenus[u][v].length; j++) {
-		// 								if (v == myValues-1 && j == inputValues-1) {
-		// 									balances[0][1] += dataResults[v][j];
-		// 									System.out.println("You have successfully added "+dataResults[v][j] +"GB to your "+ plansName[u]+ "\n");		
-		// 									firstDisplay();
-		// 								}
+							if (myValues-1 == v) {
+								for (String tMenus : thirdMenus[u][v]) {
+									System.out.println(tMenus);	
+								}
+								// for (int j=0; j< ThirdMenus[u][v].length; j++) {
+								// 	System.out.println(ThirdMenus[u][v][j]);	
+								// }
+								if (!(u == 2) && !(u == 4)){
+									System.out.print("\n Your Reply> ");
+									int inputValues = Integer.parseInt(userInput.nextLine());
+									for (int j=0; j< thirdMenus[u][v].length; j++) {
+										if (v == myValues-1 && j == inputValues-1) {
+											// balances[0][1] += dataResults[v][j];
+											balances[1] += dataResults[v][j];
+											System.out.println("You have successfully added "+dataResults[v][j] +"GB to your "+ plansName[u]+ "\n");		
+											firstDisplay();
+										}
 								
-		// 							}
+									}
 
-		// 						} else if (u == 2) {
-		// 							if(myValues == 1){
-		// 								System.out.println("Your account balance #"+balances[0][0] +"\n");
-		// 							} else {
-		// 								System.out.println("Your data balance "+balances[0][1] +"GB \n");
-		// 							}
-		// 							firstDisplay();
-		// 						} else{
-		// 							System.out.print("\n Your Reply> ");
-		// 							String phoneNo = userInput.nextLine();
-		// 							System.out.print(" Enter the amount to send ");
-		// 							System.out.print("\n Your Reply> ");
-		// 							int sentMoney = Integer.parseInt(userInput.nextLine());
-		// 							System.out.print("You have sent "+ sentMoney + " to this phone number " + phoneNo);
-		// 							firstDisplay();
-		// 						}
+								} else if (u == 2) {
+									if(myValues == 1){
+										// System.out.println("Your account balance #"+balances[0][0] +"\n");
+										System.out.println("Your account balance #"+balances[0] +"\n");
+									} else {
+										// System.out.println("Your data balance "+balances[0][1] +"GB \n");
+										System.out.println("Your data balance "+balances[1] +"GB \n");
+									}
+									firstDisplay();
+								} else{
+									System.out.print("\n Your Reply> ");
+									String phoneNo = userInput.nextLine();
+									System.out.print(" Enter the amount to send ");
+									System.out.print("\n Your Reply> ");
+									int sentMoney = Integer.parseInt(userInput.nextLine());
+									System.out.print("You have sent "+ sentMoney + " to this phone number " + phoneNo);
+									firstDisplay();
+								}
 
 
 									
-		// 						//  else if (u == firstMenus.length-1) {
-		// 						// 	System.out.print("\n Your Reply> ");
-		// 						// 	String phoneNo = userInput.nextLine();
-		// 						// 	System.out.print(" Enter the amount to send ");
-		// 						// 	System.out.print("\n Your Reply> ");
-		// 						// 	int sentMoney = Integer.parseInt(userInput.nextLine());
-		// 						// 	System.out.print("You have sent "+ sentMoney + " to this phone number " + phoneNo);
-		// 						// 	firstDisplay();
-		// 						// }
-		// 					}
-		// 				}	
-		// 			}
-		// 		}
-		// 	}
-		// }else{
-		// 	System.out.println("\n Your code is Invalid\n");
-		// 	firstDisplay();			
-		// }
-	// }
+								//  else if (u == firstMenus.length-1) {
+								// 	System.out.print("\n Your Reply> ");
+								// 	String phoneNo = userInput.nextLine();
+								// 	System.out.print(" Enter the amount to send ");
+								// 	System.out.print("\n Your Reply> ");
+								// 	int sentMoney = Integer.parseInt(userInput.nextLine());
+								// 	System.out.print("You have sent "+ sentMoney + " to this phone number " + phoneNo);
+								// 	firstDisplay();
+								// }
+							}
+						}	
+					}
+				}
+			}
+		}else{
+			System.out.println("\n Your code is Invalid\n");
+			firstDisplay();			
+		}
+	}
 	public static void mtnPhone(String mtncode){
 		if (mtncode.equals("*131#")) {
 			System.out.println(" WELCOME TO MTN APP");
@@ -296,25 +299,26 @@ public class TrollUssd{
 		}	
 		firstDisplay();
 	}
-	// public static void airtelPhone(String airtelcode){
-	// 	if (airtelcode.equals("*141#")) {
-	// 		System.out.println(" WELCOME TO AIRTEL APP");
-	// 		// for (String menus : firstMenus) {
-	// 		// 	System.out.println(menus);
-	// 		// }
-	// 		// System.out.print(" Your Reply> ");
-	// 		// userInput.nextLine();
-	// 		operateUssd(2);
-	// 	} else if(airtelcode.equals("*123#")) {
-	// 		System.out.println(" Your account balances is #"+ balances[1][0]);
-	// 	} else {
-	// 		System.out.println(" Your code is Invalid\n");
-	// 		firstDisplay();
-	// 	}
-	// }
+	public static void airtelPhone(String airtelcode){
+		if (airtelcode.equals("*141#")) {
+			System.out.println(" WELCOME TO AIRTEL APP");
+			// for (String menus : firstMenus) {
+			// 	System.out.println(menus);
+			// }
+			// System.out.print(" Your Reply> ");
+			// userInput.nextLine();
+			operateUssd(2);
+		} else if(airtelcode.equals("*123#")) {
+			// System.out.println(" Your account balances is #"+ balances[1][0]);
+			System.out.println(" Your account balances is #"+ balances[0]);
+		} else {
+			System.out.println(" Your code is Invalid\n");
+			firstDisplay();
+		}
+	}
 	
 	public static void main(String[] args) {
-		System.out.println("\n Welcome to your Sim Manager");
+		System.out.println("\n Welcome to your MTN SIM Manager");
 		firstDisplay();
 		// openApp(Integer.parseInt(userInput.nextLine()));
 		// menuOptions();
